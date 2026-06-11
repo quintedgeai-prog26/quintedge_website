@@ -27,6 +27,7 @@ const CSS = `
 }
 .qe-about *{margin:0;padding:0;box-sizing:border-box}
 .qe-about .disp{font-family:var(--display)}
+.qe-about h2{font-family:var(--display)}
 .qe-about .ph{background:var(--ph);background-image:linear-gradient(135deg,#eceef2 0%,#dfe2e8 100%);border-radius:32px}
 .qe-about .canvas{width:100%;max-width:none;margin:0 auto;position:relative}
 

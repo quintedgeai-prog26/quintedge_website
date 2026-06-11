@@ -62,3 +62,42 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* ===================== Monument Extended (display font) ===================== */
+/* Place the font files in /public/fonts/ so these load.
+   Expected: MonumentExtended-Regular.* and MonumentExtended-Ultrabold.*
+   (woff2 preferred; otf also works). */
+@font-face {
+  font-family: 'Monument Extended';
+  src: url('/fonts/MonumentExtended-Regular.woff2') format('woff2'),
+       url('/fonts/MonumentExtended-Regular.otf') format('opentype');
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Monument Extended';
+  src: url('/fonts/MonumentExtended-Ultrabold.woff2') format('woff2'),
+       url('/fonts/MonumentExtended-Ultrabold.otf') format('opentype');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===================== Skewed "sticker" red highlight boxes ===================== */
+/* Applies the tilted-rectangle shape to every .hl red box site-wide while
+   keeping the text perfectly upright (the box is a skewed pseudo-element). */
+.hl {
+  position: relative;
+  isolation: isolate;
+  background: transparent !important;
+}
+.hl::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--red, #DF0002);
+  border-radius: inherit;
+  transform: skewX(-5deg);
+  z-index: -1;
+}

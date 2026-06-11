@@ -55,9 +55,8 @@ const LINKS = [
   { label: "Home", to: "/", key: "home" },
   { label: "About", to: "/about", key: "about" },
   { label: "Services", to: "/services", key: "services" },
-  { label: "Blogs", to: "#", key: "blogs" },
+  { label: "Blogs", to: "/blogs", key: "blogs" },
 ];
-
 export default function SiteNav({ active = "" }) {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);

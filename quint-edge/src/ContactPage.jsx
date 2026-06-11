@@ -22,6 +22,7 @@ const CSS = `
 }
 .qe-contact *{margin:0;padding:0;box-sizing:border-box}
 .qe-contact .disp{font-family:var(--display)}
+.qe-contact h2{font-family:var(--display)}
 .qe-contact .canvas{width:100%;max-width:none;margin:0 auto;position:relative}
 
 /* hero + nav */

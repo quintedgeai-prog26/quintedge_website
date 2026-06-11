@@ -5,6 +5,7 @@ import QuintEdgeHome from "./QuintEdgeHome";
 import AboutPage from "./AboutPage";
 import ServicesPage from "./ServicesPage";
 import ContactPage from "./ContactPage";
+import BlogsPage from "./BlogsPage";
 
 /* Scroll back to the top whenever the route changes */
 function ScrollToTop() {
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/blogs" element={<BlogsPage />} />
         {/* Fallback: anything unknown shows the home page */}
         <Route path="*" element={<QuintEdgeHome />} />
       </Routes>

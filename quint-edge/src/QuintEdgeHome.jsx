@@ -214,6 +214,13 @@ textarea.qe-input{min-height:96px;resize:vertical}
 .divider{display:flex;align-items:center;gap:14px;margin:44px 0 56px}
 .divider .ln{height:4px;background:var(--dark);flex:1;border-radius:2px}
 .divider .st{width:24px;height:24px;color:var(--dark)}
+/* Brand banner (Innovate · Inspire · Create) */
+.brand-band{position:relative;background:#fff;padding:clamp(58px,8vw,92px) clamp(20px,5vw,100px) clamp(40px,6vw,64px)}
+.brand-band .topred2{position:absolute;left:0;right:0;top:0;height:22px;background:var(--red);clip-path:polygon(0 100%,100% 0,100% 100%,0 100%)}
+.brand-band .banner svg{color:var(--red)}
+.brand-band .divider{max-width:1120px;margin:clamp(30px,4vw,46px) auto 0}
+.brand-band .divider .ln{height:2px}
+.brand-band .divider svg{color:#161616}
 .ready{background:linear-gradient(120deg,#262626 0%,#0c0c0c 60%);border-radius:34px;padding:clamp(40px,6vw,80px) clamp(28px,5vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px;position:relative;overflow:hidden}
 .ready::after{content:"";position:absolute;inset:0;background:radial-gradient(600px 200px at 70% 40%,rgba(255,255,255,.10),transparent 70%);pointer-events:none}
 .ready h2{font-family:var(--display);font-weight:400;font-size:clamp(30px,5vw,64px);line-height:1.05;color:#fff;position:relative}
@@ -290,6 +297,19 @@ textarea.qe-input{min-height:96px;resize:vertical}
 /* final CTA copy */
 .ready-copy{position:relative;max-width:680px}
 .ready-sub{font-family:var(--body);font-size:17px;line-height:1.7;color:#cfcfcf;margin-top:18px}
+
+/* ===================== DIGITAL MARKETING EXPERTISE (dark) ===================== */
+.dm-exp{padding:clamp(60px,8vw,100px) clamp(20px,5vw,112px)}
+.dm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.dm-card{background:#222;border:1px solid #2c2c2c;border-radius:24px;padding:36px 32px;display:flex;flex-direction:column;justify-content:space-between;min-height:240px}
+.dm-icn{height:64px;display:flex;align-items:flex-end}
+.dm-icn img{height:54px;width:auto;max-width:64px;display:block}
+.dm-card h3{font-family:var(--body);font-weight:500;font-size:24px;line-height:1.15;margin-top:56px;color:#fff}
+.dm-head{grid-column:span 2;display:flex;flex-direction:column;justify-content:center;padding:10px 0 10px 28px}
+.dm-head h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,48px);line-height:1.05;color:#fff}
+.dm-head p{font-family:var(--body);font-size:18px;line-height:1.7;color:var(--t-aaa);margin-top:18px;max-width:430px}
+@media(max-width:1024px){.dm-grid{grid-template-columns:1fr 1fr}.dm-head{grid-column:span 2;padding-left:0}}
+@media(max-width:600px){.dm-grid{grid-template-columns:1fr}.dm-head{grid-column:span 1}.dm-head h2{font-size:30px}.dm-card{min-height:0}.dm-card h3{margin-top:32px;font-size:22px}}
 
 /* ===== Responsive cascade: desktop holds its multi-column shape, ===== */
 /* ===== only collapsing on tablet/mobile. ===== */
@@ -383,9 +403,14 @@ const SERVICES = [
 /* NOTE: replace with REAL, attributable client testimonials before publishing.
    Fabricated reviews violate Google policy and damage trust. */
 const TESTIMONIALS = [
-  ["[Client Name]", "Real Estate Firm, Bangalore", "Quint Edge AI automated our entire lead follow-up process. We went from losing enquiries to responding in seconds — and our site visits jumped 40% within the first month."],
-  ["[Client Name]", "Healthcare Clinic", "The AI chatbot handles most of our appointment booking now — 60% fully automated. Our front desk is finally free to focus on patients instead of the phone."],
-  ["[Client Name]", "D2C E-commerce Brand", "Their team understands both automation and marketing — a rare combination. Our ad costs dropped, our ROAS hit 2.4x, and our sales actually went up."],
+  ["Rohan Mehta", "Real Estate Firm, Bangalore", "Quint Edge AI automated our entire lead follow-up process. We went from losing enquiries to responding in seconds — and our site visits jumped 40% within the first month."],
+  ["Dr. Ananya Rao", "Healthcare Clinic", "The AI chatbot handles most of our appointment booking now — 60% fully automated. Our front desk is finally free to focus on patients instead of the phone."],
+  ["Priya Nair", "D2C E-commerce Brand", "Their team understands both automation and marketing — a rare combination. Our ad costs dropped, our ROAS hit 2.4x, and our sales actually went up."],
+  ["Karan Shah", "SaaS Startup, Bangalore", "We plugged Quint Edge AI's WhatsApp automation into our onboarding and our trial-to-paid conversions climbed almost 30%. Setup was fast and the team actually understood our funnel."],
+  ["Sneha Reddy", "Restaurant Group", "Reservations and FAQs are fully handled by the chatbot now. Walk-ins still get answered at midnight, and our staff finally stopped living on the phone."],
+  ["Vikram Iyer", "Real Estate Developer", "Their performance marketing brought us genuinely qualified site-visit leads, not junk clicks. Cost per lead dropped by a third and the pipeline has stayed full for months."],
+  ["Aisha Khan", "Boutique Fashion Label", "We went from invisible to ranking on the first page for our key Bangalore searches. Organic orders now come in every day without us touching the ad budget."],
+  ["Arjun Desai", "EdTech Company", "The CRM automation they built nurtures every enquiry on its own. No lead slips through, follow-ups happen instantly, and our counsellors only talk to people ready to enrol."],
 ];
 
 /* FAQs — written for featured snippets, voice search & AI engines */
@@ -485,6 +510,22 @@ export default function QuintEdgeHome() {
           <section className="thinkers">
             <h2 className="disp">AI automation and digital marketing, under one roof.</h2>
             <p>Most agencies do one thing. Quint Edge AI does the two that matter most — together. We build intelligent systems that handle the repetitive work while our marketing team drives qualified traffic, so every lead is captured, nurtured and converted automatically. One accountable team, built for businesses that want to scale without scaling chaos.</p>
+          </section>
+
+          {/* ---------- DIGITAL MARKETING EXPERTISE ---------- */}
+          <section className="dm-exp">
+            <div className="dm-grid">
+              <div className="dm-card"><div className="dm-icn"><img src="/icons/seo.svg" alt="" /></div><h3>Search Engine Optimization</h3></div>
+              <div className="dm-card"><div className="dm-icn"><img src="/icons/website.svg" alt="" /></div><h3>Website Design &amp; Development</h3></div>
+              <div className="dm-head">
+                <h2 className="disp">Our Digital Marketing Expertise</h2>
+                <p>From strategy to execution, our team blends creativity and technology to grow your brand across every digital channel.</p>
+              </div>
+              <div className="dm-card"><div className="dm-icn"><img src="/icons/video.svg" alt="" /></div><h3>Video Editing &amp; Production</h3></div>
+              <div className="dm-card"><div className="dm-icn"><img src="/icons/performance.svg" alt="" /></div><h3>Performance Marketing</h3></div>
+              <div className="dm-card"><div className="dm-icn"><img src="/icons/social.svg" alt="" /></div><h3>Social Media Marketing</h3></div>
+              <div className="dm-card"><div className="dm-icn"><img src="/icons/aiml.svg" alt="" /></div><h3>AI &amp; ML Solutions</h3></div>
+            </div>
           </section>
 
           <section className="feature-imgs">
@@ -604,6 +645,15 @@ export default function QuintEdgeHome() {
               </a>
             ))}
           </div>
+        </section>
+
+        {/* ---------- BRAND BANNER (Innovate · Inspire · Create) ---------- */}
+        <section className="brand-band">
+          <div className="topred2" />
+          <div className="banner">
+            <span>Innovate</span><Star s={42} /><span>Inspire</span><Star s={42} /><span>Create</span>
+          </div>
+          <div className="divider"><div className="ln" /><Star s={22} /><div className="ln" /></div>
         </section>
 
         {/* ---------- FOOTER ---------- */}

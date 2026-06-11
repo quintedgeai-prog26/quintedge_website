@@ -92,6 +92,21 @@ const CSS = `
 .qe-svc .why .center{text-align:center;max-width:820px;margin:0 auto}
 .qe-svc .why h2{font-family:var(--display);font-weight:400;font-size:44px;line-height:1;display:inline-flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center}
 .qe-svc .why h2 .hl{background:var(--red);color:#fff;border-radius:10px;padding:2px 16px 8px}
+.qe-svc .proc-head{max-width:760px;margin:0 auto clamp(40px,6vw,64px);text-align:center}
+.qe-svc .proc-head h2{font-family:var(--display);font-weight:800;font-size:clamp(30px,4vw,46px);color:#111;line-height:1.08}
+.qe-svc .proc-head p{margin-top:16px;font-size:clamp(15px,1.6vw,18px);line-height:1.6;color:#555}
+.qe-svc .svc-cta{background:var(--dark,#161616);color:#fff;text-align:center;
+  padding:clamp(56px,8vw,96px) clamp(20px,5vw,100px)}
+.qe-svc .svc-cta-banner{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;
+  font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:1px;
+  font-size:clamp(20px,3vw,34px);color:#fff}
+.qe-svc .svc-cta-banner i{color:var(--red,#DF0002);font-style:normal}
+.qe-svc .svc-cta h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,4.5vw,52px);
+  line-height:1.06;margin:clamp(22px,3vw,32px) auto 0;max-width:16ch}
+.qe-svc .svc-cta-btn{display:inline-block;margin-top:clamp(28px,3vw,38px);background:var(--red,#DF0002);
+  color:#fff;text-decoration:none;border-radius:40px;padding:18px 40px;font-weight:600;font-size:17px;
+  transition:transform .2s,filter .2s}
+.qe-svc .svc-cta-btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
 .qe-svc .why .sub{font-family:var(--body);font-size:20px;color:var(--t-aaa);margin-top:16px}
 .qe-svc .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
 .qe-svc .bcard2{background:#1f1f1f;border:1px solid #2a2a2a;border-radius:22px;padding:34px}
@@ -225,36 +240,36 @@ const Spark = () => W(<><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" /></>);
 const ArrowR = () => W(<><line x1="4" y1="12" x2="19" y2="12" /><polyline points="13 6 19 12 13 18" /></>);
 
 const EXPERTISE = [
-  [<SeoIcon />, "Search Engine Optimization"],
-  [<WebIcon />, "Website design & Development"],
-  [<VideoIcon />, "Video editing & Production"],
-  [<PerformanceIcon />, "Performance Marketing"],
-  [<SocialIcon />, "Social media Marketing"],
-  [<AiMlIcon />, "AI & ML Solutions"],
+  [<SeoIcon />, "SEO Services"],
+  [<WebIcon />, "Website Development"],
+  [<AiMlIcon />, "AI Automation Solutions"],
+  [<SocialIcon />, "AI Chatbot Development"],
+  [<VideoIcon />, "WhatsApp Automation"],
+  [<PerformanceIcon />, "Performance Marketing (PPC)"],
 ];
 
 const PHASES = [
-  { n: "Phase 01", t: "Discovery", c: "#2563EB", bg: "#E8F0FF", icon: PhSearch, d: "Understanding your business, goals, and challenges", dur: "1-2 weeks",
-    acts: ["Stakeholder interviews", "Market & competitor research", "User research & personas", "Project requirements gathering", "Technical feasibility assessment"],
-    deliver: ["Project brief", "User personas", "Research findings", "Technical specification"] },
-  { n: "Phase 02", t: "Design", c: "#10B981", bg: "#E6FAF1", icon: PhPen, d: "Creating beautiful, functional designs", dur: "2-4 weeks",
-    acts: ["Information architecture", "Wireframing & user flows", "Visual design & branding", "Interactive prototyping", "Usability testing"],
-    deliver: ["Wireframes", "High-fidelity designs", "Interactive prototypes", "Design system"] },
-  { n: "Phase 03", t: "Develop", c: "#7C3AED", bg: "#F1EBFF", icon: PhCode, d: "Building your solution with best practices", dur: "4-8 weeks",
-    acts: ["Frontend development", "Backend development", "API integration", "Quality assurance testing", "Performance optimization"],
-    deliver: ["Functional website/app", "Source code", "Documentation", "Test reports"] },
-  { n: "Phase 04", t: "Deploy", c: "#EF4444", bg: "#FDE9E9", icon: PhRocket, d: "Launching and supporting your project", dur: "1-2 weeks",
-    acts: ["Deployment & hosting setup", "Performance monitoring", "Team training & handover", "Ongoing maintenance", "Continuous improvement"],
-    deliver: ["Live website/app", "Analytics setup", "Maintenance plan", "Support documentation"] },
+  { n: "Phase 01", t: "Discovery", c: "#2563EB", bg: "#E8F0FF", icon: PhSearch, d: "Understanding your business, goals and bottlenecks.", dur: "1 week",
+    acts: ["Goals & KPI workshop", "Audit of current tools & workflows", "Marketing & funnel review", "Competitor & keyword research", "Automation opportunity mapping"],
+    deliver: ["Growth roadmap", "Audit findings", "KPI targets", "Recommended quick wins"] },
+  { n: "Phase 02", t: "Strategy", c: "#10B981", bg: "#E6FAF1", icon: PhPen, d: "Designing the right automation and marketing plan.", dur: "1-2 weeks",
+    acts: ["Automation & funnel design", "Channel & campaign strategy", "Tool & integration plan", "Content & SEO plan", "Timeline & milestones"],
+    deliver: ["Strategy document", "Workflow blueprints", "Campaign plan", "Measurement plan"] },
+  { n: "Phase 03", t: "Implement", c: "#7C3AED", bg: "#F1EBFF", icon: PhCode, d: "Building and launching your systems and campaigns.", dur: "2-6 weeks",
+    acts: ["AI chatbot & WhatsApp setup", "Workflow & CRM automation", "Website & landing pages", "SEO & ad campaign launch", "Quality assurance & testing"],
+    deliver: ["Live automations", "Active campaigns", "Integrated CRM", "Tracking dashboards"] },
+  { n: "Phase 04", t: "Optimize", c: "#EF4444", bg: "#FDE9E9", icon: PhRocket, d: "Monitoring, refining and scaling your results.", dur: "Ongoing",
+    acts: ["Performance monitoring", "A/B testing & experiments", "Campaign & workflow tuning", "Monthly reporting", "Scaling what works"],
+    deliver: ["Performance reports", "Optimization log", "Growth recommendations", "Ongoing support"] },
 ];
 
 const BENEFITS = [
-  [<Target />, "Clear communication at every stage", "Stay informed with regular updates and transparent discussions"],
-  [<ClockW />, "On-time delivery", "Structured timelines ensure your project launches when expected"],
-  [<Trend />, "Scalable solutions", "Built to grow with your business needs"],
-  [<Shield />, "Quality assurance throughout", "Rigorous testing at every phase ensures excellence"],
-  [<Spark />, "Collaborative decision-making", "Your input shapes every milestone"],
-  [<ArrowR />, "Post-launch support", "We are with you beyond deployment"],
+  [<Target />, "Outcome-first approach", "We report on leads, conversions and hours saved \u2014 not vanity metrics."],
+  [<ClockW />, "On-time delivery", "Structured timelines ensure your systems and campaigns launch when expected."],
+  [<Trend />, "Systems that scale with you", "Automation and marketing built to grow with your business."],
+  [<Shield />, "Quality assurance throughout", "Rigorous testing at every phase ensures everything works reliably."],
+  [<Spark />, "Transparent reporting", "Clear dashboards and updates so you always know what is working."],
+  [<ArrowR />, "Ongoing optimization & support", "We stay with you beyond launch to keep improving results."],
 ];
 
 export default function ServicesPage() {
@@ -268,14 +283,14 @@ export default function ServicesPage() {
           <SiteNav active="services" />
           <div className="hero-inner">
             <h1 className="svc-title"><span>Our</span><span className="hl">Services</span></h1>
-            <p className="hero-p">Quint Edge AI is a dynamic and innovative design agency that brings creative ideas to life. We work with a wide range of clients to develop unique and effective branding, web design, and graphic design solutions.</p>
+            <p className="hero-p">Quint Edge AI offers AI automation and digital marketing services in Bangalore that help businesses save time, generate leads and grow. From AI chatbots and WhatsApp automation to SEO and performance marketing, every service is built to deliver measurable results.</p>
           </div>
         </header>
 
         {/* BUILD STRONG */}
         <section className="build">
-          <h2 className="disp">We Build Strong, High&ndash;Performing Brands Through Strategic Design</h2>
-          <p>Our expert teams deliver this through thoughtful creativity, precise design execution, and reliable production standards. Using modern tools and smart workflows, we ensure faster delivery, transparent processes, and cost-effective results for every project.</p>
+          <h2 className="disp">We Build Growth Engines That Save You Time and Bring You Customers</h2>
+          <p>We combine AI automation with performance-driven marketing to remove manual work, capture every lead and turn your digital presence into a predictable source of revenue \u2014 with faster delivery, transparent processes and measurable results for every business.</p>
           <div className="build-cards"><div className="bcard" /><div className="bcard" /><div className="bcard" /><div className="bcard" /></div>
         </section>
 
@@ -286,8 +301,8 @@ export default function ServicesPage() {
             <div className="ecard"><div className="icn">{EXPERTISE[0][0]}</div><h3>{EXPERTISE[0][1]}</h3></div>
             <div className="ecard"><div className="icn">{EXPERTISE[1][0]}</div><h3>{EXPERTISE[1][1]}</h3></div>
             <div className="exp-head">
-              <h2 className="disp">Our Digital Marketing Expertise</h2>
-              <p>From strategy to execution, our team blends creativity and technology to grow your brand across every digital channel.</p>
+              <h2 className="disp">Our AI &amp; Digital Marketing Expertise</h2>
+              <p>From intelligent automation to performance marketing, we blend technology and creativity to help your business save time, capture leads and grow across every channel.</p>
             </div>
             {EXPERTISE.slice(2).map(([ic, t]) => (
               <div className="ecard" key={t}><div className="icn">{ic}</div><h3>{t}</h3></div>
@@ -297,6 +312,10 @@ export default function ServicesPage() {
 
         {/* PROCESS (white) */}
         <section className="process">
+          <div className="proc-head">
+            <h2 className="disp">Our Process</h2>
+            <p>A proven four-phase process that turns your goals into automated systems and measurable growth.</p>
+          </div>
           <div className="timeline">
             {PHASES.map((p, i) => {
               const content = (
@@ -345,6 +364,13 @@ export default function ServicesPage() {
               <div className="bcard2" key={t}><div className="tile">{ic}</div><h3>{t}</h3><p>{d}</p></div>
             ))}
           </div>
+        </section>
+
+        {/* FINAL CTA */}
+        <section className="svc-cta">
+          <div className="svc-cta-banner"><span>Automate</span><i>\u2022</i><span>Market</span><i>\u2022</i><span>Grow</span></div>
+          <h2 className="disp">Ready to automate and grow your business?</h2>
+          <Link to="/contact" className="svc-cta-btn">Book a Free Strategy Call</Link>
         </section>
 
         {/* FOOTER */}
