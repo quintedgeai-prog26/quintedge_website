@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import SiteNav from "./SiteNav";
 
 /**
  * Quint Edge AI — Contact Page
@@ -131,13 +132,7 @@ export default function ContactPage() {
 
         {/* HERO */}
         <header className="hero">
-          <nav className="nav">
-            <div className="logo"><img src="/logo.webp" alt="Quint Edge AI" /></div>
-            <div className="nav-links">
-              <Link to="/">Home</Link><Link to="/about">About</Link><Link to="/services">Services</Link><a href="#">Blogs</a>
-            </div>
-            <Link to="/contact" style={{ textDecoration: "none" }}><button className="btn-contact">Contact Us</button></Link>
-          </nav>
+          <SiteNav active="contact" />
           <div className="hero-inner">
             <h1 className="hero-title"><span>We&rsquo;re</span><span className="hl">here</span><span>to Help!</span></h1>
             <p className="hero-p">Have a project in mind or a question about automating and growing your business? Reach out and our team will get back to you within one business day.</p>

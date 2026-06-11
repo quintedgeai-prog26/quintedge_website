@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import SiteNav from "./SiteNav";
 
 /**
  * Quint Edge — Home Page
@@ -293,17 +294,33 @@ textarea.qe-input{min-height:96px;resize:vertical}
 /* ===== Responsive cascade: desktop holds its multi-column shape, ===== */
 /* ===== only collapsing on tablet/mobile. ===== */
 @media(max-width:1024px){
+  .hero{background-attachment:scroll}
   .blog-grid{grid-template-columns:repeat(2,1fr)}
   .testi-card.side{display:none}
+  .testi-card{width:min(680px,92vw)}
   .svc-mid{order:3}
 }
+@media(max-width:900px){
+  .hero-sub{white-space:normal}
+}
 @media(max-width:760px){
-  .nav-links{display:none}
   .proc-grid{grid-template-columns:1fr}
   .blog-grid{grid-template-columns:1fr}
   .feature-imgs .ph.a,.feature-imgs .ph.b{flex-basis:100%;max-width:100%}
   .foot-bottom{flex-direction:column;text-align:center}
   .ready{flex-direction:column;align-items:flex-start}
+  .hero-card{flex:1 1 100%;max-width:360px;height:auto;min-height:240px;margin:0 auto}
+  .hero-card:nth-child(n){transform:none}
+  .pf-cards{flex-wrap:wrap}.pf-card{flex:1 1 100%}
+}
+@media(max-width:600px){
+  .tag{display:none}
+  .hero-cta{flex-direction:column}
+  .hero-cta .btn-primary,.hero-cta .btn-ghost{width:100%;justify-content:center}
+  .proc-card{padding:28px}
+  .formcard{padding:28px}
+  .testi .sec-head{font-size:30px}
+  .banner span{font-size:34px}
 }
 `;
 
@@ -433,13 +450,7 @@ export default function QuintEdgeHome() {
 
         {/* ---------- HERO ---------- */}
         <header className="hero">
-          <nav className="nav">
-            <div className="logo"><img src="/logo.webp" alt="Quint Edge AI" /></div>
-            <div className="nav-links">
-              <Link to="/" className="active">Home</Link><Link to="/about">About</Link><Link to="/services">Services</Link><a href="#">Blogs</a>
-            </div>
-            <Link to="/contact" style={{ textDecoration: "none" }}><button className="btn-contact">Contact Us</button></Link>
-          </nav>
+          <SiteNav active="home" />
 
           <div className="hero-inner">
             <div className="wordmark"><span className="hl">Quint</span><span>Edge AI</span></div>

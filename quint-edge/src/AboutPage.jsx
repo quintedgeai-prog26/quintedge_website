@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import SiteNav from "./SiteNav";
 
 /**
  * Quint Edge AI — About Page
@@ -41,13 +42,13 @@ const CSS = `
 .qe-about .btn-contact:hover{filter:brightness(1.08);transform:translateY(-1px)}
 
 /* ---- hero ---- */
-.qe-about .hero-inner{text-align:center;padding:90px 100px 0}
+.qe-about .hero-inner{text-align:center;padding:90px clamp(20px,5vw,100px) 0}
 .qe-about .about-title{font-family:var(--display);font-weight:800;font-size:80px;line-height:1;letter-spacing:-1px;display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:18px}
 .qe-about .about-title .hl{background:var(--red);color:#fff;border-radius:14px;padding:6px 26px 12px}
 .qe-about .hero-p{font-family:var(--body);font-size:24px;line-height:1.7;letter-spacing:-.01em;color:#d8d8d8;max-width:980px;margin:34px auto 0}
 
 /* ---- white wrap ---- */
-.qe-about .white{background:#161616;border-radius:0;margin-top:0;position:relative;z-index:2;padding:110px 100px 0}
+.qe-about .white{background:#161616;border-radius:0;margin-top:0;position:relative;z-index:2;padding:110px clamp(20px,5vw,100px) 0}
 
 /* pill label */
 .qe-about .pill{display:inline-block;border:1.5px solid #444;border-radius:30px;padding:12px 26px;font-family:var(--body);font-weight:600;font-size:16px;color:#fff}
@@ -81,7 +82,7 @@ const CSS = `
 .qe-about .vmc.red .ic{background:#b80002}
 
 /* path history (dark) */
-.qe-about .hist{background:var(--dark);color:#fff;margin-top:120px;padding:96px 100px 120px;position:relative;clip-path:polygon(0 26px,100% 0,100% 100%,0 100%)}
+.qe-about .hist{background:var(--dark);color:#fff;margin-top:120px;padding:96px clamp(20px,5vw,100px) 120px;position:relative;clip-path:polygon(0 26px,100% 0,100% 100%,0 100%)}
 .qe-about .hist .topline{position:absolute;left:0;right:0;top:0;height:26px;background:var(--red);clip-path:polygon(0 100%,100% 0,100% 100%,0 100%)}
 .qe-about .tag{position:absolute;left:0;top:120px;writing-mode:vertical-rl;transform:rotate(180deg);color:#fff;font-family:var(--body);font-weight:500;font-size:16px;letter-spacing:.14em;text-transform:uppercase}
 .qe-about .hist .center{text-align:center;max-width:760px;margin:0 auto}
@@ -102,7 +103,7 @@ const CSS = `
 .qe-about .tl-row.right .ds{margin-left:auto}
 
 /* portfolio (light) */
-.qe-about .portfolio{background:var(--light);padding:90px 100px}
+.qe-about .portfolio{background:var(--light);padding:90px clamp(20px,5vw,100px)}
 .qe-about .pf-head{display:flex;align-items:center;justify-content:space-between}
 .qe-about .pf-head h2{font-family:var(--display);font-weight:800;font-size:44px;line-height:1.05;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .qe-about .pf-head h2 .hl{background:var(--red);color:#fff;border-radius:12px;padding:2px 14px 6px}
@@ -163,6 +164,22 @@ const CSS = `
   .qe-about .tl-row.right .text{text-align:left}
   .qe-about .banner span{font-size:42px}
 }
+@media(max-width:600px){
+  .qe-about .about-title{font-size:34px}
+  .qe-about .hero-p{font-size:17px}
+  .qe-about .why-l h2,.qe-about .vm-head h2,.qe-about .hist .center h2{font-size:28px}
+  .qe-about .vm-head h2{flex-wrap:wrap}
+  .qe-about .stat .n{font-size:44px}
+  .qe-about .stat .l{font-size:16px}
+  .qe-about .why-img{height:280px}
+  .qe-about .vmc{padding:28px;min-height:0}
+  .qe-about .vmc .ic{top:24px;right:24px;width:44px;height:44px}
+  .qe-about .tag{display:none}
+  .qe-about .pf-head{flex-direction:column;align-items:flex-start;gap:16px}
+  .qe-about .pf-card{height:300px}
+  .qe-about .tl-row .tl-img{height:220px}
+  .qe-about .banner span{font-size:30px}
+}
 `;
 
 /* icons */
@@ -195,13 +212,7 @@ export default function AboutPage() {
 
         {/* HERO */}
         <header className="hero">
-          <nav className="nav">
-            <div className="logo"><img src="/logo.webp" alt="Quint Edge AI" /></div>
-            <div className="nav-links">
-              <Link to="/">Home</Link><Link to="/about" className="active">About</Link><Link to="/services">Services</Link><a href="#">Blogs</a>
-            </div>
-            <Link to="/contact" style={{ textDecoration: "none" }}><button className="btn-contact">Contact Us</button></Link>
-          </nav>
+          <SiteNav active="about" />
           <div className="hero-inner">
             <h1 className="about-title"><span>ABOUT</span><span className="hl">QUINT EDGE AI</span></h1>
             <p className="hero-p">Quint Edge AI is a dynamic and innovative design agency that brings creative ideas to life. We work with a wide range of clients to develop unique and effective branding, web design, and graphic design solutions.</p>

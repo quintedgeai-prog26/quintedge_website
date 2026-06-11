@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import SiteNav from "./SiteNav";
 
 /**
  * Quint Edge AI — Services Page
@@ -36,13 +37,13 @@ const CSS = `
 .qe-svc .nav-links a.active{color:var(--red);opacity:1}
 .qe-svc .btn-contact{background:var(--red);color:#fff;border:none;border-radius:32px;padding:18px 30px;font-family:var(--body);font-size:18px;font-weight:600;cursor:pointer;transition:transform .2s,filter .2s}
 .qe-svc .btn-contact:hover{filter:brightness(1.08);transform:translateY(-1px)}
-.qe-svc .hero-inner{text-align:center;padding:90px 100px 0}
+.qe-svc .hero-inner{text-align:center;padding:90px clamp(20px,5vw,100px) 0}
 .qe-svc .svc-title{font-family:var(--display);font-weight:800;font-size:96px;line-height:1;letter-spacing:-1px;display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:18px}
 .qe-svc .svc-title .hl{background:var(--red);color:#fff;border-radius:16px;padding:6px 30px 16px}
 .qe-svc .hero-p{font-family:var(--body);font-size:24px;line-height:1.7;letter-spacing:-.01em;color:#d8d8d8;max-width:980px;margin:34px auto 0}
 
 /* build-strong white section */
-.qe-svc .build{background:#161616;border-radius:0;margin-top:0;position:relative;z-index:2;padding:110px 100px 0;text-align:center}
+.qe-svc .build{background:#161616;border-radius:0;margin-top:0;position:relative;z-index:2;padding:110px clamp(20px,5vw,100px) 0;text-align:center}
 .qe-svc .build h2{font-family:var(--display);font-weight:400;font-size:40px;line-height:1.6;color:#fff;max-width:1126px;margin:0 auto}
 .qe-svc .build p{font-family:var(--body);font-size:18px;line-height:1.7;color:#d8d8d8;max-width:760px;margin:18px auto 0}
 .qe-svc .build-cards{display:flex;justify-content:center;gap:24px;margin-top:60px;padding-bottom:30px}
@@ -53,7 +54,7 @@ const CSS = `
 .qe-svc .bcard:nth-child(4){transform:rotate(8deg)}
 
 /* expertise (dark) */
-.qe-svc .expertise{background:var(--dark);color:#fff;padding:100px 100px;position:relative;clip-path:polygon(0 22px,100% 0,100% 100%,0 100%)}
+.qe-svc .expertise{background:var(--dark);color:#fff;padding:100px clamp(20px,5vw,100px);position:relative;clip-path:polygon(0 22px,100% 0,100% 100%,0 100%)}
 .qe-svc .expertise .topline{position:absolute;left:0;right:0;top:0;height:22px;background:var(--red);clip-path:polygon(0 100%,100% 0,100% 100%,0 100%)}
 .qe-svc .exp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .qe-svc .ecard{background:#1e1e1e;border-radius:24px;padding:36px 32px;display:flex;flex-direction:column;justify-content:space-between;min-height:240px}
@@ -64,7 +65,7 @@ const CSS = `
 .qe-svc .exp-head p{font-family:var(--body);font-size:18px;line-height:1.7;color:var(--t-aaa);margin-top:18px;max-width:420px}
 
 /* process (white) */
-.qe-svc .process{background:#fff;padding:100px 100px}
+.qe-svc .process{background:#fff;padding:100px clamp(20px,5vw,100px)}
 .qe-svc .timeline{position:relative}
 .qe-svc .timeline::before{content:"";position:absolute;left:50%;top:20px;bottom:20px;width:3px;background:var(--red);transform:translateX(-50%);opacity:.85}
 .qe-svc .phase{display:flex;align-items:flex-start;gap:70px;margin-bottom:80px}
@@ -86,7 +87,7 @@ const CSS = `
 .qe-svc .deliver .row .dot{width:7px;height:7px;border-radius:50%;background:var(--red);flex:none}
 
 /* why our process (dark) */
-.qe-svc .why{background:var(--dark);color:#fff;padding:100px 100px;position:relative;clip-path:polygon(0 22px,100% 0,100% 100%,0 100%)}
+.qe-svc .why{background:var(--dark);color:#fff;padding:100px clamp(20px,5vw,100px);position:relative;clip-path:polygon(0 22px,100% 0,100% 100%,0 100%)}
 .qe-svc .why .topline{position:absolute;left:0;right:0;top:0;height:22px;background:var(--red);clip-path:polygon(0 100%,100% 0,100% 100%,0 100%)}
 .qe-svc .why .center{text-align:center;max-width:820px;margin:0 auto}
 .qe-svc .why h2{font-family:var(--display);font-weight:400;font-size:44px;line-height:1;display:inline-flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center}
@@ -130,6 +131,23 @@ const CSS = `
   .qe-svc .timeline::before{display:none}
   .qe-svc .why-grid{grid-template-columns:1fr}
   .qe-svc .banner span{font-size:42px}.qe-svc .ready{flex-direction:column;text-align:center}.qe-svc .ready h2{font-size:40px}
+  .qe-svc .build-cards{flex-wrap:wrap}
+}
+@media(max-width:600px){
+  .qe-svc .svc-title{font-size:40px}
+  .qe-svc .hero-p,.qe-svc .build p{font-size:16px}
+  .qe-svc .build h2{font-size:26px;line-height:1.35}
+  .qe-svc .build-cards{gap:16px}
+  .qe-svc .bcard{width:130px;height:130px;border-radius:22px}
+  .qe-svc .exp-grid{grid-template-columns:1fr}
+  .qe-svc .exp-head{grid-column:span 1;padding-left:0}
+  .qe-svc .exp-head h2{font-size:32px}
+  .qe-svc .ecard{min-height:0}
+  .qe-svc .ecard h3{margin-top:32px;font-size:22px}
+  .qe-svc .phase{gap:20px;margin-bottom:54px}
+  .qe-svc .ph-title{font-size:30px}
+  .qe-svc .why h2{font-size:30px}
+  .qe-svc .ready h2{font-size:32px}
 }
 `;
 
@@ -247,13 +265,7 @@ export default function ServicesPage() {
 
         {/* HERO */}
         <header className="hero">
-          <nav className="nav">
-            <div className="logo"><img src="/logo.webp" alt="Quint Edge AI" /></div>
-            <div className="nav-links">
-              <Link to="/">Home</Link><Link to="/about">About</Link><Link to="/services" className="active">Services</Link><a href="#">Blogs</a>
-            </div>
-            <Link to="/contact" style={{ textDecoration: "none" }}><button className="btn-contact">Contact Us</button></Link>
-          </nav>
+          <SiteNav active="services" />
           <div className="hero-inner">
             <h1 className="svc-title"><span>Our</span><span className="hl">Services</span></h1>
             <p className="hero-p">Quint Edge AI is a dynamic and innovative design agency that brings creative ideas to life. We work with a wide range of clients to develop unique and effective branding, web design, and graphic design solutions.</p>
